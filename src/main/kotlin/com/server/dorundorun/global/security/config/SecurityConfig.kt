@@ -13,14 +13,12 @@ import org.springframework.security.web.server.header.XFrameOptionsServerHttpHea
 
 @Configuration
 @EnableWebFluxSecurity
-class SecurityConfig {
-    private val corsConfig: CorsConfig? = null
-
+class SecurityConfig(private val corsConfig: CorsConfig) {
     @Bean
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         http
             .csrf { it.disable() }
-            .cors { it.configurationSource(corsConfig?.corsConfigurationSource() ?: null) }
+            .cors { it.configurationSource(corsConfig?.corsConfigurationSource()) }
             .formLogin { it.disable() }
             .httpBasic { it.disable() }
             .headers { it -> it.frameOptions { it.mode(XFrameOptionsServerHttpHeadersWriter.Mode.SAMEORIGIN) } }
@@ -29,7 +27,6 @@ class SecurityConfig {
                 it.pathMatchers("/").permitAll()
                 it.anyExchange().authenticated()
             }
-            .oauth2Login{ }
         return http.build()
     }
 
