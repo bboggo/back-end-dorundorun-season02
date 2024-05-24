@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: dorun-dorun
+
+  r2dbc:
+    url:
+    username:
+    password:
