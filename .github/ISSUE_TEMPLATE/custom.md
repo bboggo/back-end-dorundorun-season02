@@ -1,0 +1,20 @@
+---
+name: Custom issue template
+about: Describe this issue template's purpose here.
+title: ''
+labels: ''
+assignees: ''
+
+---
+
+| name | about | title | duration   | reference | assignees |
+|-----|-------|-------|-------|-----------|-----------|
+| 이슈명 | 세부 설명 | [fix] | 목표 기간 | 레퍼런스 | 작업자 |
+
+## 이슈 설명
+
+## 원하는 방향
+
+## 레퍼런스
+
+## 기타사항
